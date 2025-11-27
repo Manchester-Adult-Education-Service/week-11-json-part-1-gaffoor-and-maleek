@@ -102,8 +102,20 @@ while choice != "3":
     if choice == "1":
         for book in library:
             print(f"Title: {book["title"]} | Author: {book["author"]} | Stock: {book["stock"]}")
+    elif choice == "2":
+        user_search = input("Enter a book title: ").lower()
+        found = False
+        for book in library:
+            if user_search == book["title"].lower():
+                print(f"Title: {book["title"]}")
+                found = True
+            if found is False:
+                print("Book not Found")
+                break
+
     else:
         print("Invalid choice !")
+    
 if choice == "3":
     print(" GoodBye!")
 else:
