@@ -99,10 +99,16 @@ while choice != "3":
     print("3. Exit")
     user_choice = input("Enter your choice: ")
     choice = user_choice
+    if choice == "1":
+        for book in library:
+            print(f"Title: {book["title"]} | Author: {book["author"]} | Stock: {book["stock"]}")
+    else:
+        print("Invalid choice !")
 if choice == "3":
     print(" GoodBye!")
 else:
     print("Invalid Choice!")
+
 # -------------------------------------------
 # CHECKPOINT
 # -------------------------------------------
