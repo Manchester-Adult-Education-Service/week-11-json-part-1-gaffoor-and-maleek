@@ -92,11 +92,12 @@ with open ("books.json", "r")as file:
 # NOTE: This loop will become the "home" for all your future code!
 
 choice = "0"
-while choice != "3":
+while choice != "4":
     print("---- BOOK INVENTORY----")
     print("1. View All Books")
-    print("2 Search for Book")
-    print("3. Exit")
+    print("2. Search for Book")
+    print("3. Calculate Total Inventory Value")
+    print("4. Exit")
     user_choice = input("Enter your choice: ")
     choice = user_choice
     if choice == "1":
@@ -112,11 +113,15 @@ while choice != "3":
             if found is False:
                 print("Book not Found")
                 break
-
+    elif choice=="3":
+        total_value = 0    
+        for book in library:
+            total_value = book["price"] * book["stock"]
+            print(f"Total Value:   £{total_value}")
     else:
         print("Invalid choice !")
     
-if choice == "3":
+if choice == "4":
     print(" GoodBye!")
 else:
     print("Invalid Choice!")
