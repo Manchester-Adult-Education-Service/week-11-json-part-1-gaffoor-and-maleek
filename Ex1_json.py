@@ -50,7 +50,9 @@ import json  # We need this tool to read the external file
 #     variable_name = json.load(file)
 #
 # Write your code below:
-
+with open ("books.json", "r")as file:
+    library = json.load(file)
+    print (library)
 
 
 
@@ -89,8 +91,54 @@ import json  # We need this tool to read the external file
 # Write your code below:
 # NOTE: This loop will become the "home" for all your future code!
 
+choice = "0"
+while choice != "4":
+    print()
+    print("---- BOOK INVENTORY----")
+    print()
+    print("1. View All Books")
+    print("2. Search for Book")
+    print("3. Calculate Total Inventory Value")
+    print("4. Exit")
+    print()
+    user_choice = input("Enter your choice: ")
+    print()
+    choice = user_choice
 
+    if choice == "1":
 
+        for book in library:
+
+            print(f"Title: {book["title"]} | Author: {book["author"]} | Stock: {book["stock"]}")
+            print()
+
+    elif choice == "2":
+        user_search = input("Enter a book title: ").lower()
+        found = False
+        for book in library:
+            if user_search == book["title"].lower():
+                print(f"Title: {book["title"]}")
+                found = True
+            if found is False:
+                print("Sorry Book is not Found try again ")
+            break
+
+    elif choice=="3":
+
+        total_value = 0    
+
+        for book in library:
+
+            total_value = book["price"] * book["stock"]
+
+            print(f"Total Value:   £{total_value}")
+    else:
+        print("Invalid choice !")
+    
+    if choice == "4":
+        print(" GoodBye!")
+    else:
+        print("Invalid Choice!")
 
 # -------------------------------------------
 # CHECKPOINT
