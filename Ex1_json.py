@@ -93,16 +93,25 @@ with open ("books.json", "r")as file:
 
 choice = "0"
 while choice != "4":
+    print()
     print("---- BOOK INVENTORY----")
+    print()
     print("1. View All Books")
     print("2. Search for Book")
     print("3. Calculate Total Inventory Value")
     print("4. Exit")
+    print()
     user_choice = input("Enter your choice: ")
+    print()
     choice = user_choice
+
     if choice == "1":
+
         for book in library:
+
             print(f"Title: {book["title"]} | Author: {book["author"]} | Stock: {book["stock"]}")
+            print()
+
     elif choice == "2":
         user_search = input("Enter a book title: ").lower()
         found = False
@@ -112,19 +121,24 @@ while choice != "4":
                 found = True
             if found is False:
                 print("Sorry Book is not Found try again ")
-                break
+            break
+
     elif choice=="3":
+
         total_value = 0    
+
         for book in library:
+
             total_value = book["price"] * book["stock"]
+
             print(f"Total Value:   £{total_value}")
     else:
         print("Invalid choice !")
     
-if choice == "4":
-    print(" GoodBye!")
-else:
-    print("Invalid Choice!")
+    if choice == "4":
+        print(" GoodBye!")
+    else:
+        print("Invalid Choice!")
 
 # -------------------------------------------
 # CHECKPOINT
